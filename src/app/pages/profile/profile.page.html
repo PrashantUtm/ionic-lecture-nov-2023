@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-label></app-label>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal details</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>My Name</ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-radio-group value="gender">
+          <ion-item>
+            <ion-radio value="male" labelPlacement="start" alignment="end">Male</ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="female" labelPlacement="start" alignment="end">Female</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-range labelPlacement="stacked" label="My mood">
+        <ion-icon slot="start" name="sad-outline"></ion-icon>
+        <ion-icon slot="end" name="happy-outline"></ion-icon>
+      </ion-range>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Other details</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-select label="Course" label-placement="floating">
+          <ion-select-option value="bse">Software Engineering</ion-select-option>
+          <ion-select-option value="fa">Accounting and Finance</ion-select-option>
+          <ion-select-option value="co">Communication</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox label-placement="start" alignment="end">I would like to receive emails about promotions from blabla.com</ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Activate account</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>No activation email has been sent to your account yet.</ion-label>
+      <div class="ion-text-center">
+        <ion-button (click)="sendActivationEmail()">Send activation email</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
