@@ -49,18 +49,21 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-checkbox label-placement="start" alignment="end">I would like to receive emails about promotions from blabla.com</ion-checkbox>
+        <ion-input type="email" placeholder="email@domain.com" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox label-placement="start" alignment="end" [(ngModel)]="receiveUpdates">I would like to receive emails about promotions from blabla.com</ion-checkbox>
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-card>
+  <ion-card *ngIf="receiveUpdates">
     <ion-card-header>
       <ion-card-title>Activate account</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-label>No activation email has been sent to your account yet.</ion-label>
+      <ion-label [ngClass]="emailSent ? 'sent' : 'not-sent'">{{ activationLabel }}</ion-label>
       <div class="ion-text-center">
-        <ion-button (click)="sendActivationEmail()">Send activation email</ion-button>
+        <ion-button (click)="sendActivationEmail()" [disabled]="emailSent">Send activation email</ion-button>
       </div>
     </ion-card-content>
   </ion-card>
